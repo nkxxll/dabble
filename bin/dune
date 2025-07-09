@@ -1,11 +1,5 @@
-(executable
- (public_name dabble)
- (name main)
- (libraries dabble))
-
-(executable
-  (public_name minimize)
-  (name minimize)
-  (libraries dabble core)
-  (preprocess (pps ppx_deriving.show ppx_compare ppx_sexp_conv)))
-
+(executables
+ (names main minimize ralgo)
+ (public_names dabble minimize ralgo)
+ (libraries dabble core)
+ (preprocess (pps ppx_deriving.show ppx_compare ppx_sexp_conv)))
