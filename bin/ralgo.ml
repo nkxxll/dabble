@@ -57,6 +57,9 @@ let () =
   |> List.iter ~f:(fun r ->
     cache := Set.add !cache r;
     gen_recurse r);
+  (* here the side effects begin we did not have to do this there is also the
+     way that you cache = newcache in the gen_recurse then return last new
+     cache and cache = new cache here if you know what I mean *)
   printf "Generated %d records:\n" (Set.length !cache + 1);
   Set.to_list !cache
   |> List.sort ~compare:(fun a b ->
